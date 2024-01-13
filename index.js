@@ -9,7 +9,8 @@ const questions = [
     "please enter installation instructions:",
     "please enter usage information:",
     "please enter contribution guidelines:",
-    "please enter test instructions:"];
+    "please enter test instructions:",
+    "please select your license type:"];
 
     const generateREADME = ({name, description, install, usage, contribute, test}) =>
     `# ${name}
@@ -73,6 +74,12 @@ const questions = [
       name: 'testInstruct',
       message: `${questions[5]}`,
     },
+    {
+      type: 'list',
+      name: 'liscence',
+      message: `${questions[6]}`,
+      choices: ['Apache License 2.0', 'GNY General Public LIcense v3.0', 'MIT License', 'BSD 2-Clause SImplified LIcense', 'BDS 3-Clause', 'Boost Software License', "Creative Commons Zero v1.0 Universal", 'Eclipse PUblic License 2.0', 'GNU General Public License v2.0', 'GNU Lesser General Public License v2.1', 'Mozilla Public License 2.0', 'The Unlicense']
+    },
   ])
   .then((answers) => {
     const readMeContent = generateREADME(answers);
@@ -82,8 +89,6 @@ const questions = [
     );
   });
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
 function init() {}

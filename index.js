@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inq = require('inquirer');
 const fs = require('fs');
+const licenseMD= require(`./utils/generateMarkdown.js`)
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -9,9 +10,11 @@ const questions = [
     "please enter installation instructions:",
     "please enter usage information:",
     "please enter contribution guidelines:",
-    "please enter test instructions:"];
+    "please enter test instructions:",
+    "please select your license type:"];
 
-    const generateREADME = ({name, description, install, usage, contribute, test}) =>
+
+const generateREADME = ({name, description, install, usage, contribute, test, license}) =>
     `# ${name}
 
     ## Description
@@ -39,7 +42,10 @@ const questions = [
 
     ## Tests
     
-    ${test}`
+    ${test}
+    
+    ${licenseMD.renderLicenseSection(license)}`
+
 
     inq
   .prompt([
@@ -55,12 +61,12 @@ const questions = [
     },
     {
       type: 'input',
-      name: 'instalInstruct',
+      name: 'install',
       message: `${questions[2]}`,
     },
     {
       type: 'input',
-      name: 'userInfo',
+      name: 'usage',
       message:`${questions[3]}`,
     },
     {
@@ -70,8 +76,14 @@ const questions = [
     },
     {
       type: 'input',
-      name: 'testInstruct',
+      name: 'test',
       message: `${questions[5]}`,
+    },
+    {
+      type: 'list',
+      name: 'license',
+      message: `${questions[6]}`,
+      choices: ['Apache License 2.0', 'GNY General Public License v3.0', 'MIT License', 'BSD 2-Clause SImplified License', 'BDS 3-Clause', 'Boost Software License', "Creative Commons Zero v1.0 Universal", 'Eclipse PUblic License 2.0', 'GNU General Public License v2.0', 'GNU Lesser General Public License v2.1', 'Mozilla Public License 2.0', 'The Unlicense']
     },
   ])
   .then((answers) => {
@@ -82,11 +94,9 @@ const questions = [
     );
   });
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
 
-// TODO: Create a function to initialize app
-function init() {}
+// // TODO: Create a function to initialize app
+// function init() {}
 
-// Function call to initialize app
-init();
+// // Function call to initialize app
+// init();

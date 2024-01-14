@@ -2,7 +2,7 @@
 
     ## Description
     
-   its a big big project
+   it maeks a read me
     
     ## Table of Contents 
     
@@ -13,16 +13,18 @@
     
     ## Installation
     
-    undefined
+    run node on this index.js file
     
     ## Usage
     
-    undefined
+    public
     
     ## How to Contribute
     
-   ucberkeley and edx
+   edX starter code
 
     ## Tests
+    
+    na
     
     undefined

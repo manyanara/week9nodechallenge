@@ -51,7 +51,7 @@ const generateREADME = ({name, description, install, usage, contribute, test, li
   .prompt([
     {
       type: 'input',
-      name: 'title',
+      name: 'name',
       message: `${questions[0]}`,
     },
     {
@@ -90,7 +90,7 @@ const generateREADME = ({name, description, install, usage, contribute, test, li
     const readMeContent = generateREADME(answers);
 
     fs.writeFile('README.md', readMeContent, (err) =>
-      err ? console.log(err) : console.log('Successfully created index.html!')
+      err ? console.log(err) : console.log('Successfully created README.md!')
     );
   });
 

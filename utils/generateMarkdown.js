@@ -1,7 +1,7 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  const badge = license.toLowerCase();
+  const badge = license.toLowerCase().split(' ').join('');
 
    // Shields.io URL for GitHub license badge
    const shieldsUrl = `https://img.shields.io/github/license-${badge}.svg`;
@@ -12,10 +12,10 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(username, repository, license) {
-
-  const licenseLink = `https://github.com${username}/${repository}/blob/main/${license}`
-  return licenseLink
+function renderLicenseLink(license) {
+  const licenseURL = license.replace( /\s/g, '');
+  const licenseLink = `https://github.com/blob/main/${licenseURL}`
+  return licenseLink;
 }
 
 
@@ -25,12 +25,14 @@ function renderLicenseSection(license) {
 
   const shieldsUrl = renderLicenseBadge(license);
   const licenseLink = renderLicenseLink(license);
-  `## License
+  const markDown = `## License
   Distributed under ${license}. 
   The badge :
   ![License](${shieldsUrl})
   the URL:
   ${licenseLink} `
+
+  return markDown;
 }
 
 

@@ -1,8 +1,8 @@
-# undefined
+# Week 9 README generator
 
     ## Description
     
-   it maeks a read me
+   This program generates a README.md file using user input from CLI
     
     ## Table of Contents 
     
@@ -13,18 +13,23 @@
     
     ## Installation
     
-    run node on this index.js file
+    run node and install inquirer and fs packages, then run program in terminal to create README
     
     ## Usage
     
-    public
+    Public
     
     ## How to Contribute
     
-   edX starter code
+   Started code given by EdX Bootcamp
 
     ## Tests
     
-    na
+    n/a
     
-    undefined
+    ## License
+  Distributed under Apache License 2.0. 
+  The badge :
+  ![License](https://img.shields.io/github/license-apachelicense2.0.svg)
+  the URL:
+  https://github.com/blob/main/ApacheLicense2.0 
